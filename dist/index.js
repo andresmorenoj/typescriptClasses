@@ -15,13 +15,26 @@
 // }
 // const Elton = new Player('Elton', 'Steele')
 class Player {
-    constructor(first, last, score) {
+    constructor(first, last, _score) {
         this.first = first;
         this.last = last;
-        this.score = score;
+        this._score = _score;
     }
     secretMethod() {
-        console.log('secret message');
+        console.log("secret message");
+    }
+    get fullName() {
+        return `${this.first} ${this.last}`;
+    }
+    get score() {
+        return this._score;
+    }
+    set score(newScore) {
+        if (newScore < 0) {
+            throw new Error("Score cannot be negative");
+        }
+        ;
+        this._score = newScore;
     }
 }
-const Elton = new Player('Elton', 'Steele', 100);
+const Elton = new Player("Elton", "Steele", 100);
