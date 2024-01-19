@@ -33,8 +33,16 @@ class Player {
         if (newScore < 0) {
             throw new Error("Score cannot be negative");
         }
-        ;
         this._score = newScore;
+    }
+}
+class SuperPlayer extends Player {
+    constructor() {
+        super(...arguments);
+        this.isAdmin = true;
+    }
+    maxScore() {
+        this._score = 9999;
     }
 }
 const Elton = new Player("Elton", "Steele", 100);
