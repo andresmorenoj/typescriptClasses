@@ -1,2 +1,8 @@
 "use strict";
-console.log('hola');
+class Player {
+    constructor(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+}
+new Player('Elton', 'Steele');
