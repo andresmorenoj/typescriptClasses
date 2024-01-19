@@ -53,3 +53,28 @@ class SuperPlayer extends Player {
 }
 
 const Elton = new Player("Elton", "Steele", 100);
+
+interface Colorful {
+	color: string;
+}
+
+interface Printable {
+	print(): void;
+}
+
+class Bike implements Colorful {
+	// color = 'red'
+	constructor(public color: string){}
+}
+
+class Jacket implements Colorful, Printable {
+	constructor(public brand: string, public color: string){};
+
+	print() {
+		console.log(`${this.color}`);
+		
+	}
+}
+
+const Bike1 = new Bike('red');
+const Jacket1 = new Jacket('Prada', 'black')
