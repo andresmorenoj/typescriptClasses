@@ -57,10 +57,51 @@ class Jacket {
         this.brand = brand;
         this.color = color;
     }
-    ;
     print() {
         console.log(`${this.color}`);
     }
 }
-const Bike1 = new Bike('red');
-const Jacket1 = new Jacket('Prada', 'black');
+const Bike1 = new Bike("red");
+const Jacket1 = new Jacket("Prada", "black");
+class Employee {
+    constructor(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+    ;
+    greet() {
+        console.log('Hello!');
+    }
+}
+class FullTimeEmployee extends Employee {
+    constructor(first, last, salary) {
+        super(first, last);
+        this.first = first;
+        this.last = last;
+        this.salary = salary;
+    }
+    ;
+    getPay() {
+        return this.salary;
+    }
+}
+;
+class PartTimeEmployee extends Employee {
+    constructor(first, last, houralyRate, hoursWork) {
+        super(first, last);
+        this.first = first;
+        this.last = last;
+        this.houralyRate = houralyRate;
+        this.hoursWork = hoursWork;
+    }
+    ;
+    getPay() {
+        return this.houralyRate * this.hoursWork;
+    }
+}
+;
+const Bettry = new FullTimeEmployee('Betty', 'White', 40000);
+const Bill = new PartTimeEmployee('Bill', 'Billerson', 30, 80);
+// Employee
+// 	- FullTimeEmployee
+// 	- PartTimeEmployee

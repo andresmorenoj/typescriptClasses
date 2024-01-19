@@ -38,43 +38,78 @@ class Player {
 
   set score(newScore: number) {
     if (newScore < 0) {
-			throw new Error("Score cannot be negative");
-		}
+      throw new Error("Score cannot be negative");
+    }
 
     this._score = newScore;
   }
 }
 
 class SuperPlayer extends Player {
-	public isAdmin: boolean = true;
-	maxScore() {
-		this._score = 9999;
-	}
+  public isAdmin: boolean = true;
+  maxScore() {
+    this._score = 9999;
+  }
 }
 
 const Elton = new Player("Elton", "Steele", 100);
 
 interface Colorful {
-	color: string;
+  color: string;
 }
 
 interface Printable {
-	print(): void;
+  print(): void;
 }
 
 class Bike implements Colorful {
-	// color = 'red'
-	constructor(public color: string){}
+  // color = 'red'
+  constructor(public color: string) {}
 }
 
 class Jacket implements Colorful, Printable {
-	constructor(public brand: string, public color: string){};
+  constructor(public brand: string, public color: string) {}
 
-	print() {
-		console.log(`${this.color}`);
-		
+  print() {
+    console.log(`${this.color}`);
+  }
+}
+
+const Bike1 = new Bike("red");
+const Jacket1 = new Jacket("Prada", "black");
+
+abstract class Employee {
+  constructor(public first: string, public last: string) {};
+
+	abstract getPay(): number;
+	greet() {
+		console.log('Hello!');
 	}
 }
 
-const Bike1 = new Bike('red');
-const Jacket1 = new Jacket('Prada', 'black')
+class FullTimeEmployee extends Employee {
+	constructor(public first: string, public last: string, private salary: number){
+		super(first, last);
+	};
+	
+
+	getPay(): number {
+		return this.salary;
+	}
+};
+
+class PartTimeEmployee extends Employee {
+	constructor(public first: string, public last: string, private houralyRate: number, private hoursWork: number){
+		super(first, last);
+	};
+	getPay(): number {
+		return this.houralyRate * this.hoursWork;
+	}
+};
+
+const Bettry = new FullTimeEmployee('Betty', 'White', 40000);
+const Bill = new PartTimeEmployee('Bill', 'Billerson', 30, 80);
+
+// Employee
+// 	- FullTimeEmployee
+// 	- PartTimeEmployee
