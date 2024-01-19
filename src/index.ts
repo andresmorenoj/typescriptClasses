@@ -9,6 +9,10 @@ class Player {
 		this.first = first;
 		this.last = last;
 	}
+
+	private secretMethod(): void {
+		console.log('secret message');
+	}
 }
 
 const Elton = new Player('Elton', 'Steele')
