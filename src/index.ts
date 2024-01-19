@@ -1,10 +1,11 @@
 class Player {
 	first: string;
 	last: string;
+	score = 0
 	constructor(first: string, last: string) {
 		this.first = first;
 		this.last = last;
 	}
 }
 
-new Player('Elton', 'Steele')
+const Elton = new Player('Elton', 'Steele')
