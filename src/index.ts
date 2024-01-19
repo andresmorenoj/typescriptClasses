@@ -1,7 +1,9 @@
 class Player {
-	readonly first: string;
-	readonly last: string;
-	score = 0
+	// readonly first: string;
+	// readonly last: string;
+	public readonly first: string;
+	public readonly last: string;
+	public score = 0
 
 	constructor(first: string, last: string) {
 		this.first = first;
